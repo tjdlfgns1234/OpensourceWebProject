@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap 5.3.0-alpha3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+
+    <!-- Material icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300" rel="stylesheet" />
+
+    <script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=96kmjwxr19&submodules=geocoder&callback=createMap"></script>
+
+    <!-- Chart.js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="common.js"></script>
+    <script src="clustering.js"></script>
+
+    <link href="common.css" rel="stylesheet" />
+    <link href="forest-fire.css" rel="stylesheet" />
+
+    <title>Forest Fire Information</title>
+</head>
+
+<body class="container-fluid d-flex flex-row">
+    <aside class="d-flex flex-column flex-shrink-0 bg-body-tertiary left-navigation" style="width: 4.5rem;">
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+            <li class="nav-item">
+                <a href="main.html" class="nav-link py-3 border-bottom rounded-0" title="Home" data-bs-toggle="tooltip"
+                    data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">home</span>
+                </a>
+            </li>
+            <li>
+                <a href="air-pollution.html" class="nav-link py-3 border-bottom rounded-0" title="Air pollution"
+                    data-bs-toggle="tooltip" data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">foggy</span>
+                </a>
+            </li>
+            <li>
+                <a href="covid-19.html" class="nav-link py-3 border-bottom rounded-0" title="COVID-19"
+                    data-bs-toggle="tooltip" data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">coronavirus</span>
+                </a>
+            </li>
+            <li>
+                <a href="forest-fire.html" class="nav-link py-3 active border-bottom rounded-0" title="Forest fire"
+                    data-bs-toggle="tooltip" data-bs-placement="right">
+                    <span class="material-symbols-outlined icon">local_fire_department</span>
+                </a>
+            </li>
+            <li>
+                <a href="flood.html" class="nav-link py-3 border-bottom rounded-0" title="Flood"
+                    data-bs-toggle="tooltip" data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">flood</span>
+                </a>
+            </li>
+            <li>
+                <a href="earthquake.html" class="nav-link py-3 border-bottom rounded-0" title="Earthquake"
+                    data-bs-toggle="tooltip" data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">earthquake</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <div class="left-panel">
+        <div id="overall-info">
+            <h2 class="pb-2">Forest Fire</h2>
+            <nav>
+                <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-info-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-overview" type="button" role="tab" aria-controls="nav-overview"
+                        aria-selected="true">Overview</button>
+                    <button class="nav-link" id="nav-stats-tab" data-bs-toggle="tab" data-bs-target="#nav-stats"
+                        type="button" role="tab" aria-controls="nav-stats" aria-selected="false"
+                        tabindex="-1">Statistics</button>
+                    <button class="nav-link" id="nav-alerts-tab" data-bs-toggle="tab" data-bs-target="#nav-alerts"
+                        type="button" role="tab" aria-controls="nav-alerts" aria-selected="false"
+                        tabindex="-1">Alerts</button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-overview" role="tabpanel"
+                    aria-labelledby="nav-overview-tab">
+                    <iframe class="tips-video" src="https://www.youtube.com/embed/W5nXPgR0GMQ" title="올바른 산불 예방법 알아보아요!"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <table class="tips-table">
+                        <tr>
+                            <td>
+                                <img src="images/tips/forest-fire-1.png" class="img-fluid">
+                            </td>
+                            <td>
+                                <h5 class="fw-bold fs-4 text-body-emphasis">Do not smoke and make fires on the mountain
+                                </h5>
+                                <p>You must not smoke or light a fire on the mountain.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="images/tips/forest-fire-2.png" class="img-fluid">
+                            </td>
+                            <td>
+                                <h5 class="fw-bold mb-0 fs-4 text-body-emphasis">No trash burning around the mountain
+                                </h5>
+                                <p>You must not burn garbage or rice paddy fields around the mountain.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="images/tips/forest-fire-3.png" class="img-fluid">
+                            </td>
+                            <td>
+                                <h5 class="fw-bold mb-0 fs-4 text-body-emphasis">Early small fires can be extinguished
+                                    easily</h5>
+                                <p>Early small forest fires can be extinguished by beating or covering them with a cloak
+                                    or tree branch.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="images/tips/forest-fire-4.png" class="img-fluid">
+                            </td>
+                            <td>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Evacuate to a safe area if the fire
+                                    grows</h3>
+                                <p>If a forest fire grows, you must quickly evacuate to a safe area such as a rice
+                                    field, field, or vacant lot.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="images/tips/forest-fire-5.png" class="img-fluid">
+                            </td>
+                            <td>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">When evacuating, spray water and remove
+                                    gas cylinders</h3>
+                                <p>If a forest fire spreads to a residential area, evacuate after spraying water around
+                                    the house and removing gas cylinders.</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="nav-stats" role="tabpanel" aria-labelledby="nav-stats-tab">
+                    <canvas id="regions-chart" class="chart" height="200px"></canvas>
+                    <canvas id="causes-chart" class="chart" height="200px"></canvas>
+                </div>
+                <div class="tab-pane fade" id="nav-alerts" role="tabpanel" aria-labelledby="nav-alerts-tab">
+                </div>
+            </div>
+
+        </div>
+
+        <div id="detail-info" style="display: none">
+            <!--<button type="button" class="btn-close float-end" aria-label="Close"></button>-->
+            <div class="image-container" style="background-image: url('images/forest-fire-background.jpg');">\
+                <div class="image-overlay">
+                    <div class="image-title text-center">
+                        <h1>Forest Fire Record</h1>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="detail-info-body list-group list-group-flush">
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">event</span>
+                            <span>Start Date & Time</span>
+                        </small>
+                        <span id="fire-start-date"></span>
+                        <span id="fire-start-time" class="float-end"></span>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">event</span>
+                            <span>End Date & Time</span>
+                        </small>
+                        <span id="fire-end-date"></span>
+                        <span id="fire-end-time" class="float-end"></span>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">location_on</span>
+                            <span>Location</span>
+                        </small>
+                        <span id="fire-address"></span>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">width</span>
+                            <span>Damaged Area</span>
+                        </small>
+                        <span id="fire-damaged-area"></span>
+                        <span> m²</span>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">paid</span>
+                            <span>Damaged Amount</span>
+                        </small>
+                        <span>₩ </span>
+                        <span id="fire-damaged-amount"></span>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">notes</span>
+                            <span>Cause</span>
+                        </small>
+                        <span id="fire-cause"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="map"></div>
+
+        <div class="top-filters-group" role="group">
+            <input type="radio" class="btn-check" name="fire-data-type" id="radio-fire-records" autocomplete="off"
+                onclick="showRecords()" checked>
+            <label class="btn btn-light" for="radio-fire-records">Records</label>
+
+            <input type="radio" class="btn-check" name="fire-data-type" id="radio-fire-forecast" autocomplete="off"
+                onclick="showForecasts()">
+            <label class="btn btn-light" for="radio-fire-forecast">Forecasts</label>
+        </div>
+
+        <div class="search-dropdown dropdown">
+            <div class="search-form">
+                <span class="material-symbols-outlined fs-5">search</span>
+                <input type="text" id="search-input" class="form-control form-input" placeholder="Input place">
+            </div>
+            <ul id="search-suggestions" class="list-group">
+            </ul>
+        </div>
+
+        <button type="button" class="btn btn-light location-button" onclick="panToMyPosition()">
+            <span class="material-symbols-outlined">my_location</span>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="forest-fire.js"></script>
+</body>
+
+</html>

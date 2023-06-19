@@ -1,0 +1,39 @@
+.station-circle {
+    border-radius: 100%;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+    width: 12px;
+    height: 12px;
+}
+
+.forecast-circle {
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 128, 0, 0.5);
+    border-radius: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 64px;
+    height: 64px;
+}
+
+.station-selected {
+    outline: 4px solid white;
+}
+
+.air-pollution-grade1 {
+    background-color: #32a1ff
+}
+
+.air-pollution-grade2 {
+    background-color: #00c73c
+}
+
+.air-pollution-grade3 {
+    background-color: #fd9b5a
+}
+
+.air-pollution-grade4 {
+    background-color: #ff5959
+}

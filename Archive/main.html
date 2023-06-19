@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap 5.3.0-alpha3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" rel="stylesheet">
+  <!-- Ajax , times ago -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <title>Main Page</title>
+  <link rel="stylesheet" href="main.css">
+
+
+</head>
+
+<body>
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="./air-pollution.html" class="nav-link px-2 text-white">Air pollution</a></li>
+          <li><a href="./covid-19.html" class="nav-link px-2 text-white">COVID-19</a></li>
+          <li><a href="./earthquake.html" class="nav-link px-2 text-white">Earthquake</a></li>
+          <li><a href="./forest-fire.html" class="nav-link px-2 text-white">Forest Fire</a></li>
+          <li><a href="./flood.html" class="nav-link px-2 text-white">Flood</a></li>
+          <li><a href="./community.html" class="nav-link px-2 text-white">Community</a></li>
+        </ul>
+<!-- 
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+            aria-label="Search">
+            
+        </form> -->
+        <p id="userName" style="visibility: hidden;"></p>
+        <div class="text-end">          
+          <button type="button" id="signinBtn" class="btn btn-outline-light me-2"><a href="./login.html">Sign in</a></button>
+          <button type="button" id="signupBtn" class="btn btn-warning"><a href="./signup.html">Sign up</a></button>
+          <button type="button" id="logoutBtn" class="btn btn-outline-light me-2" style="display: none;"><a href="">Log out</a></button>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carousel" data-bs-slide-to="4" aria-label="Slide 4"></button>
+
+    </div>
+    <div class="carousel-inner" data-bs-interval="10000">
+      <div class="carousel-item active">
+        <video class="d-block w-100" autoplay loop muted>
+          <source src="./video/dust.mp4" type="video/mp4" />
+        </video>
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Air Pollution</h1>
+          <p></p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <video class="d-block w-100" autoplay loop muted>
+          <source src="./video/virus.mp4" type="video/mp4" />
+        </video>
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Covid-19</h1>
+          <p></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <video class="d-block w-100" autoplay loop muted>
+          <source src="./video/firemountain.mp4" type="video/mp4" />
+        </video>
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Forest Fire</h1>
+          <p></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <video class="d-block w-100" autoplay loop muted>
+          <source src="./video/earthquake.mp4" type="video/mp4" />
+        </video>
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Earthquake</h1>
+          <p></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <video class="d-block w-100" autoplay loop muted>
+          <source src="./video/flood.mp4" type="video/mp4" />
+        </video>
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Flood</h1>
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">이전</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">다음</span>
+    </button>
+  </div>
+
+  <!-- sub navbar -->
+  <div class="container ">
+    <p id="news">News</p>
+    <ul class="nav nav-tabs">
+      <li class="nav-all" onclick=clickNewsMenu(0)>
+        <a id ="all" class="nav-link active" href="#news"><strong>All</strong></a>
+      </li>
+      <li class="nav-air" onclick=clickNewsMenu(1)>
+        <a id ="air" class="nav-link" href="#news"><strong>Air pollution</strong></a>
+      </li>
+      <li class="nav-virus" onclick=clickNewsMenu(2)>
+        <a id ="virus" class="nav-link" href="#news"><strong>COVID-19</strong></a>
+      </li>
+      <li class="nav-earthquake" onclick=clickNewsMenu(3)>
+        <a id ="earthquake" class="nav-link" href="#news"><strong>Earthquake</strong></a>
+      </li>
+      <li class="nav-wildfire" onclick=clickNewsMenu(4)>
+        <a id ="wildfire" class="nav-link" href="#news"><strong>Forest Fire</strong></a>
+      </li>
+      <li class="nav-item me-auto mb-2 mb-lg-0" onclick=clickNewsMenu(5)>
+        <a id ="flood" class="nav-link" href="#news"><strong>Flood</strong></a>
+      </li>
+    </ul>
+
+    <!-- news card -->
+    <div id = "newscard" class="container news-content">
+    </div>
+
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="news.js"></script>
+</body>
+
+</html>

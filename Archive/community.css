@@ -1,0 +1,174 @@
+* {
+    padding: 0px;
+    /* margin: 0px; */
+}
+
+html {
+    font-family: "Trirong", serif;
+}
+
+#da_nav {
+    box-shadow: 0px 2px 50px rgb(0 0 0 / 5%);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#da_logo {
+    font-weight: bold;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Mogra', cursive;
+    font-family: 'Playfair Display', serif;
+}
+
+/*taskbar*/
+.left-taskbar {
+    position: fixed;
+    background-color: #ffffff;
+    width: 300px;
+    height: 100%;
+    box-shadow: 5px 0 5px -5px rgba(60, 64, 67, 0.1);
+
+}
+
+.left-taskbar .Navigation-button {
+    margin-top: 25px;
+    margin-left: 30px;
+    height: 13rem;
+}
+
+.container {
+    margin-top: 50px;
+
+}
+
+/*the first group of buttons*/
+.Navigation-button h2 {
+    padding: 5px;
+    font-size: 100%;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.Navigation-button h2 svg {
+    margin-right: 15px;
+}
+
+.Navigation-button h2:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.left-taskbar .function-buttons {
+    position: absolute;
+    bottom: 120px;
+    width: 100%;
+    /* margin-top: 420px; */
+    /* margin-left: 20px; */
+    border-top: 3px solid #f0f2f5;
+    border-bottom: 3px solid #f0f2f5;
+
+}
+
+.function-buttons h2 {
+    padding: 5px;
+    font-size: 100%;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.function-buttons h2 svg {
+    margin-right: 15px;
+}
+
+.function-buttons h2:hover {
+    background-color: rgb(238, 238, 238);
+}
+#category-chart:hover{
+    background-color: rgb(238, 238, 238);
+
+}
+.right-side {
+    margin-left: 300px;
+    height: 100vh;
+}
+
+.content {
+    position: absolute;
+    margin-top: 120px;
+
+}
+
+.comment-tag {
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.bi-hand-thumbs-up,
+.bi-hand-thumbs-up-fill {
+    padding-right: 5px;
+}
+
+span {
+    font-weight: bold;
+}
+
+.function-buttons,
+.modal {
+    z-index: 5;
+}
+
+.left-taskbar .function-buttons {
+    border-bottom: 0px;
+    border-top: 0px;
+}
+
+.comment-title {
+    font-weight: bold;
+}
+
+.make-comment {
+    padding-top: 30px;
+    padding-left: 23px;
+}
+
+.border-bottom {
+    border-bottom: 1px white;
+    padding-top: 20px;
+}
+
+#comm-chart, #comm-chart2{
+    display: flex;
+    align-items: center;
+    width: 350px !important;
+    height: 350px !important;
+    margin-left: 150px !important;
+    margin-top: 30px !important;
+    z-index: 100;
+    
+}
+.commchart{
+    margin-left : 30px;
+    margin-right: 70px;
+    margin-top: 20px;
+}
+#uName {
+    margin-bottom: 0;
+    padding-right: 20px;
+}
+
+/* .bi{
+    width:25px;
+    height: 25px;
+} */
+.heart,
+.heart-fill {
+    margin-right: 5px;
+}
+#category-chart{
+    padding: 5px;
+    font-size: 100%;
+    margin-right: 20px;
+    margin-top: 10px;
+}

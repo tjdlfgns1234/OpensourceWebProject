@@ -1,0 +1,45 @@
+.earthquake-circle {
+    background-color: rgba(0, 128, 0, 0.5);
+    border-radius: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.earthquake-magnitude1 {
+    background-color: #fff;
+}
+
+.earthquake-magnitude2 {
+    background-color: #a0e6ff;
+}
+
+.earthquake-magnitude3 {
+    background-color: #92d050;
+}
+
+.earthquake-magnitude4 {
+    background-color: #ffff00;
+}
+
+.earthquake-magnitude5 {
+    background-color: #ffc000;
+}
+
+.earthquake-magnitude6 {
+    background-color: #ff0000;
+}
+
+.earthquake-magnitude7 {
+    background-color: #a32777;
+}
+
+.earthquake-magnitude8 {
+    background-color: #632523;
+}
+
+.earthquake-magnitude9 {
+    background-color: #4c2600;
+}

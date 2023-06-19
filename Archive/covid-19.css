@@ -1,0 +1,30 @@
+.covid-circle {
+    background-color: gray;
+    border-radius: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.covid-level1 {
+    background: #ffd75d;
+}
+
+.covid-level2 {
+    background: #f2a546;
+}
+
+.covid-level3 {
+    background: #e67430;
+}
+
+.covid-level4 {
+    background: #d94219;
+}
+
+.covid-level5 {
+    background: #cd1103;
+}

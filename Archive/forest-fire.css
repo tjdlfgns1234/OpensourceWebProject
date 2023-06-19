@@ -1,0 +1,27 @@
+.forecast-circle {
+    background-color: rgba(0, 128, 0, 0.5);
+    border-radius: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 64px;
+    height: 64px;
+}
+
+.fire-forecast-grade1 {
+    background-color: #32a1ff
+}
+
+.fire-forecast-grade2 {
+    background-color: #ffc323
+}
+
+.fire-forecast-grade3 {
+    background-color: #fd9b5a
+}
+
+.fire-forecast-grade4 {
+    background-color: #ff5959
+}

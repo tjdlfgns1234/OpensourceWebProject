@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap 5.3.0-alpha3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+
+    <!-- Material icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300" rel="stylesheet" />
+
+    <script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=96kmjwxr19&submodules=geocoder&callback=createMap"></script>
+
+    <script src="common.js"></script>
+    <script src="clustering.js"></script>
+
+    <link href="common.css" rel="stylesheet" />
+    <link href="flood.css" rel="stylesheet" />
+
+    <title>Flood Information</title>
+</head>
+
+<body class="container-fluid d-flex flex-row">
+    <aside class="d-flex flex-column flex-shrink-0 bg-body-tertiary left-navigation" style="width: 4.5rem;">
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+            <li class="nav-item">
+                <a href="main.html" class="nav-link py-3 border-bottom rounded-0" title="Home" data-bs-toggle="tooltip"
+                    data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">home</span>
+                </a>
+            </li>
+            <li>
+                <a href="air-pollution.html" class="nav-link py-3 border-bottom rounded-0" title="Air pollution"
+                    data-bs-toggle="tooltip" data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">foggy</span>
+                </a>
+            </li>
+            <li>
+                <a href="covid-19.html" class="nav-link py-3 border-bottom rounded-0" title="COVID-19"
+                    data-bs-toggle="tooltip" data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">coronavirus</span>
+                </a>
+            </li>
+            <li>
+                <a href="forest-fire.html" class="nav-link py-3 border-bottom rounded-0" title="Forest fire"
+                    data-bs-toggle="tooltip" data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">local_fire_department</span>
+                </a>
+            </li>
+            <li>
+                <a href="flood.html" class="nav-link py-3 active border-bottom rounded-0" title="Flood"
+                    data-bs-toggle="tooltip" data-bs-placement="right">
+                    <span class="material-symbols-outlined icon">flood</span>
+                </a>
+            </li>
+            <li>
+                <a href="earthquake.html" class="nav-link py-3 border-bottom rounded-0" title="Earthquake"
+                    data-bs-toggle="tooltip" data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">earthquake</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <div class="left-panel">
+        <div id="overall-info">
+            <h2 class="pb-2">Flood</h2>
+            <nav>
+                <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-info-tab" data-bs-toggle="tab" data-bs-target="#nav-overview"
+                        type="button" role="tab" aria-controls="nav-home" aria-selected="true">Overview</button>
+                    <button class="nav-link" id="nav-alerts-tab" data-bs-toggle="tab" data-bs-target="#nav-alerts"
+                        type="button" role="tab" aria-controls="nav-profile" aria-selected="false"
+                        tabindex="-1">Alerts</button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab">
+                    <iframe src="https://www.youtube.com/embed/KBjuOdms98g" class="tips-video"
+                        title="우리의 안전은 우리 손으로! 집중호우 발생 시 자연재난 행동요령" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <table class="tips-table">
+                        <tr>
+                            <td>
+                                <img src="images/tips/flood-1.png" class="img-fluid">
+                            </td>
+                            <td>
+                                <h5 class="fw-bold fs-4 text-body-emphasis">Check weather changes</h5>
+                                <p>Residents in areas where flooding is expected frequently check weather changes
+                                    through
+                                    broadcasting and the Internet.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="images/tips/flood-2.png" class="img-fluid">
+                            </td>
+                            <td>
+                                <h5 class="fw-bold mb-0 fs-4 text-body-emphasis">Check evacuation sites</h5>
+                                <p>Know the evacuation site in advance and evacuate immediately when an evacuation order
+                                    is
+                                    issued.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="images/tips/flood-3.png" class="img-fluid">
+                            </td>
+                            <td>
+                                <h5 class="fw-bold mb-0 fs-4 text-body-emphasis">Evacuate to a higher place</h5>
+                                <p>In the event of a sudden flood, you must evacuate quickly to a higher place.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="images/tips/flood-4.png" class="img-fluid">
+                            </td>
+                            <td>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Shut off electricity and gas</h3>
+                                <p>When evacuating, electricity and gas must be turned off.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="images/tips/flood-5.png" class="img-fluid">
+                            </td>
+                            <td>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">No car operation</h3>
+                                <p>Cars should not be driven in flooded areas.</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="nav-alerts" role="tabpanel" aria-labelledby="nav-alerts-tab">
+                </div>
+            </div>
+
+        </div>
+
+        <div id="detail-info" style="display: none">
+            <!--<button type="button" class="btn-close float-end" aria-label="Close"></button>-->
+            <div class="image-container" style="background-image: url('images/flood-background.jpg');">\
+                <div class="image-overlay">
+                    <div class="image-title text-center">
+                        <h1>Flood detail info</h1>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="detail-info-body list-group list-group-flush">
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">event</span>
+                            <span>Start Date & Time</span>
+                        </small>
+                        <span id="flood-start-date"></span>
+                        <span id="flood-start-time" class="float-end"></span>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">event</span>
+                            <span>End Date & Time</span>
+                        </small>
+                        <span id="flood-end-date"></span>
+                        <span id="flood-end-time" class="float-end"></span>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">location_on</span>
+                            <span>Location</span>
+                        </small>
+                        <span id="flood-location"></span>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">height</span>
+                            <span>Flood Depth</span>
+                        </small>
+                        <span id="flood-depth"></span>
+                        <span> m</span>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">water</span>
+                            <span>Flood Grade</span>
+                        </small>
+                        <span id="flood-grade"></span>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">width</span>
+                            <span>Flood Area</span>
+                        </small>
+                        <span id="flood-area"></span>
+                        <span> m²</span>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">label</span>
+                            <span>Name</span>
+                        </small>
+                        <span id="flood-name"></span>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <small class="text-body-secondary gap-2 align-items-center d-flex">
+                            <span class="material-symbols-outlined fs-5">notes</span>
+                            <span>Cause</span>
+                        </small>
+                        <span id="flood-cause"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="map"></div>
+
+        <div class="search-dropdown dropdown">
+            <div class="search-form">
+                <span class="material-symbols-outlined fs-5">search</span>
+                <input type="text" id="search-input" class="form-control form-input" placeholder="Input place">
+            </div>
+            <ul id="search-suggestions" class="list-group">
+            </ul>
+        </div>
+
+        <button type="button" class="btn btn-light location-button" onclick="panToMyPosition()">
+            <span class="material-symbols-outlined">my_location</span>
+        </button>
+
+        <div class="map-card card shadow-sm">
+            <div class="card-body">
+                Expected extent & depth of flood<br>
+                <div class="legend" style="background-color: #ffff7f"></div>~ 0.5m<br>
+                <div class="legend" style="background-color: #bfff00"></div>0.5m ~ 1m<br>
+                <div class="legend" style="background-color: #00ffff"></div>1m ~ 2m<br>
+                <div class="legend" style="background-color: #bf7fff"></div>2m ~ 5m<br>
+                <div class="legend" style="background-color: #ff007f"></div>5m ~
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="flood.js"></script>
+</body>
+
+</html>

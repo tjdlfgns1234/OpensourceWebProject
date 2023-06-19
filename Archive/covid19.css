@@ -1,0 +1,108 @@
+.show-detail{
+    width: 400px;
+    padding-left: 0px;
+    display: none;
+    z-index: 3;
+    overflow: auto;
+    height: 100vh;
+}
+.detail-title{
+    padding-top: 16px;
+    padding-left: 24px;
+    background-color: #F5F5F5;
+    border-bottom: 1px solid #dadce0;
+    font-weight: bold;
+    font-size: 23px;
+}
+.detail-content{
+    padding-top: 16px;
+    padding-left: 24px;
+    border-bottom: 1px solid #dadce0;
+    font-size: 15px;
+}
+img{
+    width: 400px;
+}
+#detail-search{
+    position: absolute;
+    left: 83px;
+    top: 20px;
+    z-index: 5;
+    border-radius: 10px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    box-shadow:  1px 2px rgba(60,64,67,0.3);
+    box-shadow:  2px 6px 2px rgba(60,64,67,0.15);
+}
+#detail-search-bar{
+    position: absolute;
+    left: 83px;
+    top: 20px;
+    z-index: 5;
+    border-radius: 10px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+.searchul{
+    top: 35px;
+    width: 287px;
+    margin:0;
+    list-style-type: none;
+    text-align: center;
+    height: 100%;
+}
+.searchlist{
+    top: 35px;
+    display:inline-block;
+    text-align: left;
+    width: 287px;
+    margin:0;
+    background-color: white;
+    box-shadow:  1px 2px rgba(60,64,67,0.3);
+    box-shadow:  2px 6px 2px rgba(60,64,67,0.15);
+    padding: 10px;
+    position: relative;
+    right: 20px;
+    padding-bottom: 1rem;
+}
+.searchlist:hover{
+    background-color: black;
+    color: white;
+}
+#input-search{
+    background-color: white;
+    border: none;
+    width: 300px;
+    height: 35px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 12px;
+}
+#input-search:focus{
+    outline: none;
+}
+#btn-search{
+    background-color: white;
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-right: 12px;
+}
+#input-search{
+    background-color: white;
+    border: none;
+    width: 300px;
+    height: 35px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 12px;
+}
+#btn-exit{
+    background-color: white;
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-right: 12px;
+}

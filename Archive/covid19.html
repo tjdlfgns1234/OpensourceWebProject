@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap 5.3.0-alpha3 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+
+    <!-- Material icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300" rel="stylesheet" />
+
+    <script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=96kmjwxr19&submodules=geocoder&callback=createMap"></script>
+
+    <script src="clustering.js"></script>
+
+    <link href="common.css" rel="stylesheet" />
+    <link href="test.css" rel="stylesheet" />
+    <link href="covid19.css" rel="stylesheet" />
+
+    <title>Covid19</title>
+</head>
+
+<body class="container-fluid d-flex flex-row">
+    <aside class="d-flex flex-column flex-shrink-0 bg-body-tertiary sidebar" style="width: 4.5rem;">
+        <a href="/" class="d-block p-3 link-body-emphasis text-decoration-none" title="Icon-only"
+            data-bs-toggle="tooltip" data-bs-placement="right">
+            <svg class="bi pe-none" width="40" height="32">
+                <use xlink:href="#bootstrap" />
+            </svg>
+            <span class="visually-hidden">Icon-only</span>
+        </a>
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+            <li class="nav-item">
+                <a href="#" class="nav-link py-3 border-bottom rounded-0" title="산불" data-bs-toggle="tooltip"
+                    data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">local_fire_department</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3 border-bottom rounded-0" title="지진" data-bs-toggle="tooltip"
+                    data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">earthquake</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3 border-bottom rounded-0" title="미세먼지" data-bs-toggle="tooltip"
+                    data-bs-placement="right">
+                    <span class="material-symbols-outlined icon icon-inactive">foggy</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link active py-3 border-bottom rounded-0" title="코로나19" data-bs-toggle="tooltip"
+                    data-bs-placement="right">
+                    <span class="material-symbols-outlined icon">coronavirus</span>
+                </a>
+            </li>
+        </ul>
+        <div class="dropdown border-top">
+            <a href="#"
+                class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small shadow">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+        </div>
+    </aside>
+    <div id="detail-search" class="input-group">
+      <input id="input-search" onkeydown=searchkeyword()  type="text" placeholder="Enter the address">
+      <button id="btn-search" onclick=clickBtn() class="" type="button" id="button-addon2">
+  
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-search"
+          viewBox="0 0 16 16">
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+        </svg>
+      </button>
+      <!-- <button id="btn-exit" class="" type="button" id="button-addon2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+        </svg>
+      </button> -->
+
+    </div>
+    <div id="detail-search-bar" class="input-group">
+      <ul class ="searchul" style='list-style-image:url(./image/search.png);'></ul>
+    </div>
+    <div class="show-detail">
+    </div>
+<!--    <div class="left-panel">
+    </div>-->
+
+    <div id="map"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="covid19.js"></script>
+</body>
+
+</html>
