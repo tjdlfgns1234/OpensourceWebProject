@@ -13,7 +13,7 @@ const exitbutton = `<button id="btn-exit" class="" type="button" id="button-addo
 function createMap() {
     $.ajax({   // 코로나 API 요청
         type: "GET", // GET 방식으로 요청한다.
-        url: `https://api.corona-19.kr/korea/?serviceKey=w7cfvgGdrJXQh3y4bsAoF1SYTm9VIUB8M`,
+        url: `https://api.corona-19.kr/korea/?serviceKey=`,
         data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
         Headers: {
             'Access-Control-Allow-Credentials': true,
