@@ -64,7 +64,7 @@ else if(num == 5){
 }
 
 function searchNews(keyword) {
-    var query = "https://newsapi.org/v2/everything?q=" +keyword +"&sortBy=publishedAt&from=2023-05-15&apiKey=785c2fd4a9d043d2ab139146c62d801b&Language=en";
+    var query = "https://newsapi.org/v2/everything?q=" +keyword +"&sortBy=publishedAt&from=2023-05-15&apiKey=&Language=en";
     $.ajax({   // 코로나 API 요청
         type: "GET", // GET 방식으로 요청한다.
         url: query,
